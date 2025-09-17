@@ -26,7 +26,7 @@ function formatDateBR(input){
 
 // Items data
 const sections = {
-    "Documentação": ["CNH","Documento de Identidade","CRLV","Seguro Obrigatório"],
+    "Documentação": ["CNH","CRLV","Seguro Obrigatório"],
     "Interior": ["Airbags","Cinto de segurança","Sistema de som","Luzes de cortesia","Painel e indicadores","Bancos"],
     "Exterior": ["Para-choques","Lataria","Vidros e para-brisas","Faróis","Luzes traseiras","Retrovisores"],
     "Motor": ["Nível de óleo","Líquido de arrefecimento","Correias e mangueiras","Bateria"],
