@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Inspeção Veicular - Performance Ocupacional</title>
+
+    <!-- External libs -->
+    <script src="https://cdn.jsdelivr.net/npm/html2canvas@1.4.1/dist/html2canvas.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.1/dist/jspdf.umd.min.js"></script>
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="favicon-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="favicon-512x512.png">
+    <link rel="shortcut icon" href="favicon.ico">
+    <meta name="theme-color" content="#6766cd">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <img src="Logo1.png" alt="Performance Ocupacional Logo" id="logo">
+        <div>
+            <h1>Performance Ocupacional — App de Inspeção Veicular</h1>
+            <div style="font-size:12px;color:var(--muted)">Inspeções e geração de PDF</div>
+        </div>
+    </header>
+
+    <div class="top-form">
+        <div class="field">
+            <label for="driverName">Nome do Condutor</label>
+            <input id="driverName" type="text" placeholder="Nome completo">
+        </div>
+
+        <div class="field">
+            <label for="vehicleModel">Modelo do Veículo</label>
+            <select id="vehicleModel">
+                <option value="UNO - OMH-1091">UNO - OMH-1091</option>
+                <option value="CELTA - OMAOA64">CELTA - OMAOA64</option>
+                <option value="VAN - TRANSPORTE" disabled>VAN DE TRANSPORTE (quando liberado)</option>
+            </select>
+        </div>
+
+        <div class="field">
+            <label for="inspectionDate">Data da Inspeção</label>
+            <input id="inspectionDate" type="date">
+        </div>
+    </div>
+
+    <div class="layout">
+        <div>
+            <div class="card accordion">
+                <strong>Seções de Inspeção</strong>
+                <div style="font-size:13px;color:var(--muted);margin-top:6px">Expanda uma seção para inspecionar itens.</div>
+
+                <details class="section" open>
+                    <summary>1. Documentação do Veículo e do Condutor</summary>
+                    <div class="content" data-section="Documentação">
+                        <!-- items populated by JS -->
+                    </div>
+                </details>
+
+                <details class="section">
+                    <summary>2. Itens do Interior do Veículo</summary>
+                    <div class="content" data-section="Interior"></div>
+                </details>
+
+                <details class="section">
+                    <summary>3. Itens do Exterior do Veículo</summary>
+                    <div class="content" data-section="Exterior"></div>
+                </details>
+
+                <details class="section">
+                    <summary>4. Motor</summary>
+                    <div class="content" data-section="Motor"></div>
+                </details>
+
+                <details class="section">
+                    <summary>5. Itens de Segurança</summary>
+                    <div class="content" data-section="Segurança"></div>
+                </details>
+
+                <details class="section">
+                    <summary>6. Rodas</summary>
+                    <div class="content" data-section="Rodas"></div>
+                </details>
+
+                <div style="margin-top:12px;display:flex;gap:8px;flex-wrap:wrap">
+                    <button class="primary" id="saveInspection">Salvar Inspeção</button>
+                    <button class="secondary" id="generatePdf">Gerar Relatório (PDF)</button>
+                    <button class="secondary" id="resetForm">Limpar</button>
+                </div>
+            </div>
+        </div>
+
+        <aside class="card">
+            <strong>Histórico de Inspeções</strong>
+            <div style="display:grid;gap:8px;margin-top:8px">
+                <div>
+                    <label style="font-size:12px;color:var(--muted)">Inspeções Salvas</label>
+                    <div class="history-list" id="historyList"></div>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Imagem local para o PDF (oculta) -->
+    <img src="Logo1.png" id="logoPdf" style="display:none;" alt="Logo PDF">
+
+    <footer>App de Inspeção Veicular Criado por Filipe Goulart — ©Grupo Performance Ocupacional-2025</footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
