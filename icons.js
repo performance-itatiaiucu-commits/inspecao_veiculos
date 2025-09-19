@@ -40,7 +40,6 @@ const itemIcons = {
     "Freios": "🛑"
 };
 
-// Função para obter ícone baseado no nome do item
-function getIconForItem(itemName) {
-    return itemIcons[itemName] || "📝"; // Ícone padrão caso não encontre
+const getIconForItem = (itemName) => {
+    return itemIcons[itemName] || '📋';
 }
