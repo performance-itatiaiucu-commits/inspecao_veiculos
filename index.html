@@ -20,73 +20,82 @@
     <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32x32.png">
     <link rel="icon" type="image/png" sizes="16x16" href="favicon-16x16.png">
-    <link rel="icon" type="image/png" sizes="192x192" href="favicon-192x192.png">
-    <link rel="icon" type="image/png" sizes="512x512" href="favicon-512x512.png">
-    <link rel="shortcut icon" href="favicon.ico">
-    <meta name="theme-color" content="#6766cd">
+    <link rel="manifest" href="site.webmanifest">
+    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="theme-color" content="#ffffff">
 
-    <link rel="stylesheet" href="style.css">
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css" />
 </head>
 <body>
     <header>
-        <img src="Logo1.png" alt="Performance Ocupacional Logo" id="logo">
-        <div>
-            <h1>Performance Ocupacional — App de Inspeção Veicular</h1>
-            <div style="font-size:12px;color:var(--muted)">📋 Inspeções e geração de PDF</div>
-        </div>
+        <img src="Logo1.png" alt="Logo Performance Ocupacional" id="logo">
+        <h1>Inspeção Veicular</h1>
     </header>
 
-    <div class="top-form">
-        <div class="field">
-            <label for="driverName">👤 Nome do Condutor</label>
-            <input id="driverName" type="text" placeholder="Nome completo">
-        </div>
-
-        <div class="field">
-            <label for="vehicleModel">🚘 Modelo do Veículo</label>
+    <main class="container">
+        <div class="card main-form">
+            <div class="top-form">
+                <div class="field">
+                    <label>Condutor</label>
+                    <input type="text" id="driverName" placeholder="Nome do condutor" />
+                </div>
+                <div class="field">
+                    <label for="vehicleModel">Modelo do Veículo</label>
             <select id="vehicleModel">
                 <option value="UNO - OMH-1091">UNO - OMH-1091</option>
                 <option value="CELTA - OMAOA64">CELTA - OMAOA64</option>
                 <option value="VAN - TRANSPORTE" disabled>VAN DE TRANSPORTE (quando liberado)</option>
             </select>
-        </div>
-
-        <div class="field">
-            <label for="inspectionDate">📅 Data da Inspeção</label>
-            <input id="inspectionDate" type="date">
-        </div>
-    </div>
-
-    <div class="layout">
-        <div>
-            <div class="card accordion">
-                <strong>📑 Seções de Inspeção</strong>
-                <div style="font-size:13px;color:var(--muted);margin-top:6px">🔽 Expanda uma seção para inspecionar itens.</div>
-
-                <details class="section" open>
-                    <summary>1. 📄 Documentação do Veículo e do Condutor</summary>
-                    <div class="content" data-section="Documentação">
-                        <!-- items populated by JS -->
+                </div>
+                <div class="field">
+                    <label>Data</label>
+                    <input type="date" id="inspectionDate" />
+                </div>
+                <div class="field time-field">
+                    <label>Hora de Saída</label>
+                    <div style="display:flex;gap:4px">
+                        <input type="time" id="startTime" />
+                        <button id="markStartTime">⏱️</button>
                     </div>
+                </div>
+                <div class="field time-field">
+                    <label>Hora de Chegada</label>
+                    <div style="display:flex;gap:4px">
+                        <input type="time" id="endTime" />
+                        <button id="markEndTime">⏱️</button>
+                    </div>
+                </div>
+                 <div class="field">
+                    <label>Duração</label>
+                    <span id="duration"></span>
+                </div>
+            </div>
+
+            <div class="sections">
+                <details class="section" open>
+                    <summary>1. 📄 Documentação</summary>
+                    <div class="content" data-section="Documentação"></div>
                 </details>
 
                 <details class="section">
-                    <summary>2. 💺 Itens do Interior do Veículo</summary>
+                    <summary>2. 💺 Interior</summary>
                     <div class="content" data-section="Interior"></div>
                 </details>
 
                 <details class="section">
-                    <summary>3. 🚘 Itens do Exterior do Veículo</summary>
+                    <summary>3. 🚗 Exterior</summary>
                     <div class="content" data-section="Exterior"></div>
                 </details>
 
                 <details class="section">
-                    <summary>4. 🔧 Motor</summary>
+                    <summary>4. ⚙️ Motor</summary>
                     <div class="content" data-section="Motor"></div>
                 </details>
 
                 <details class="section">
-                    <summary>5. 🧰 Itens de Segurança</summary>
+                    <summary>5. ⚠️ Itens de Segurança</summary>
                     <div class="content" data-section="Segurança"></div>
                 </details>
 
